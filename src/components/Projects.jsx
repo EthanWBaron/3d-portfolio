@@ -7,9 +7,7 @@ const Projects = () => {
         {
             id: 1,
             title: "AniRec",
-            description: " • Built a lightweight animation discovery tool with React + Vite, integrating the TMDB API." +
-                "\n• Implemented debounced search using react-use, and added random anime suggestions to improve user engagement." +
-                "\n• Deployed on Vercel with a clean, responsive UI and React hooks (useState, useEffect).",
+            description: " Built a lightweight animation discovery tool with React + Vite, integrating the TMDB API." ,
             image: "/Ani-Rec.png",
             tech: ["React", "Node.js", "HTML/CSS", "Javascript"],
             github: "https://github.com/EthanWBaron/AniRec",
