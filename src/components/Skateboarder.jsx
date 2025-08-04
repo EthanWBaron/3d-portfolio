@@ -18,14 +18,14 @@ export function Skateboarder(props) {
                 <group rotation={[Math.PI / 2, 0, 0]}>
                     <group position={[0.002, 2.616, 0.003]}>
                         <mesh
-                            castShadow
-                            receiveShadow
+                            castShadow={false}
+                            receiveShadow={false}
                             geometry={nodes.Object_4.geometry}
                             material={materials.Bunny}
                         />
                         <mesh
-                            castShadow
-                            receiveShadow
+                            castShadow={false}
+                            receiveShadow={false}
                             geometry={nodes.Object_5.geometry}
                             material={materials.Skateboard}
                         />
