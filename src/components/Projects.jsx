@@ -39,7 +39,7 @@ const Projects = () => {
             description: "Responsive portfolio showcasing modern web development techniques.",
             image: "/Portfolio.png",
             tech: ["React", "Tailwind", "ThreeJS"],
-            github: "https://github.com/EthanWBaron/portfolio",
+            github: "https://github.com/EthanWBaron/3d-portfolio",
             live: "https://ethanbaron.vercel.app"
         },
         {
