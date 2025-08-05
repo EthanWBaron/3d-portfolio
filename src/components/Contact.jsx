@@ -74,13 +74,10 @@ const Contact = () => {
                         Get In <span className="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">Touch</span>
                     </h2>
                     <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-                        Ready to collaborate? I'm always open to discussing new opportunities and interesting projects.
-                        <br/>
-                        I am looking for Full Time or Contract Work
+                        I am looking for Full Time Junior Roles
                     </p>
                 </div>
 
-                {/* Contact Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                     {contactInfo.map((contact, index) => {
                         const IconComponent = contact.icon

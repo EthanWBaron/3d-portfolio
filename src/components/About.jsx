@@ -25,14 +25,13 @@ const About = () => {
             ref={aboutRef}
             className="min-h-screen relative z-10 py-16 px-4 absolute inset-0 bg-slate-900/50"
             style={{
-                backgroundImage: "url('/projects-bg.png')",
+                backgroundImage: "url('/about-bg.png')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundBlendMode: 'overlay'
             }}
         >
             <div className="max-w-6xl mx-auto">
-                {/* Animated Header */}
                 <div className={`text-center mb-16 transition-all duration-1000 ease-out ${
                     isVisible
                         ? 'opacity-100 translate-y-0'
@@ -61,7 +60,6 @@ const About = () => {
                         </div>
                     </div>
 
-                    {/* Text Section */}
                     <div className={`transition-all duration-1000 ease-out delay-400 ${
                         isVisible
                             ? 'opacity-100 translate-x-0'
@@ -89,11 +87,10 @@ const About = () => {
                                 </p>
                             </div>
 
-                            {/* Skills/Technologies */}
                             <div className="mt-8">
                                 <h3 className="text-xl font-semibold text-yellow-300 mb-4">Technologies I Work With</h3>
                                 <div className="flex flex-wrap gap-2">
-                                    {['React', 'Node.js', 'Kotlin', 'JavaScript', 'TypeScript', 'Firebase', 'Tailwind CSS', 'Jetpack Compose', 'C#', 'WPF'].map((tech, index) => (
+                                    {['React', 'Node.js', 'Kotlin', 'JavaScript', 'ThreeJS', 'Firebase', 'Tailwind CSS', 'Jetpack Compose', 'C#', 'WPF'].map((tech, index) => (
                                         <span
                                             key={index}
                                             className="px-3 py-1 text-sm bg-yellow-400/10 text-yellow-300 rounded-full border border-yellow-400/20 hover:bg-yellow-400/20 transition-colors"
