@@ -1,6 +1,15 @@
 import React, {useEffect, useRef, useState} from 'react'
-import { ExternalLink, Github } from 'lucide-react'
 import {Card, CardHeader,CardTitle,CardDescription, CardContent} from './Card'
+
+const SvgIcon = ({ src, size = 16, className = "", alt = "icon" }) => (
+    <img
+        src={src}
+        width={size}
+        height={size}
+        className={className}
+        alt={alt}
+    />
+)
 
 const Projects = () => {
     const [isVisible, setIsVisible] = useState(false)
@@ -83,13 +92,13 @@ const Projects = () => {
     useEffect(() => {
         const cardObserver = new IntersectionObserver(
             (entries) => {
-                entries.forEach((entry, index) => {
+                entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         const cardIndex = cardsRef.current.indexOf(entry.target)
                         if (cardIndex !== -1) {
                             setTimeout(() => {
                                 setCardsVisible(prev => [...prev, cardIndex])
-                            }, cardIndex * 100) // Stagger animation
+                            }, cardIndex * 50)
                         }
                     }
                 })
@@ -130,7 +139,6 @@ const Projects = () => {
                     </p>
                 </div>
 
-                {/* Mobile-friendly Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                     {projects.map((project, index) => (
                         <Card
@@ -151,7 +159,6 @@ const Projects = () => {
                                 transitionDelay: `${index * 50}ms`
                             }}
                         >
-                            {/* Project Image - Mobile optimized */}
                             <div className={`
                                 relative overflow-hidden
                                 ${project.featured
@@ -168,7 +175,6 @@ const Projects = () => {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
 
-                                {/* Overlay with links */}
                                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
                                     {project.github && (
                                         <a
@@ -177,7 +183,12 @@ const Projects = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <Github size={16} className="md:w-5 md:h-5" />
+                                            <SvgIcon
+                                                src="/github.svg"
+                                                size={16}
+                                                className="md:w-5 md:h-5 filter brightness-0"
+                                                alt="GitHub"
+                                            />
                                         </a>
                                     )}
                                     {project.live && (
@@ -187,7 +198,12 @@ const Projects = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <ExternalLink size={16} className="md:w-5 md:h-5" />
+                                            <SvgIcon
+                                                src="/external-link.svg"
+                                                size={16}
+                                                className="md:w-5 md:h-5 filter brightness-0 invert"
+                                                alt="Live Demo"
+                                            />
                                         </a>
                                     )}
                                 </div>

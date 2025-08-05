@@ -1,6 +1,15 @@
 import React, {useEffect, useRef, useState} from 'react'
-import {Mail, Linkedin, ExternalLink, Github} from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from './Card'
+
+const SvgIcon = ({ src, size = 32, className = "", alt = "icon" }) => (
+    <img
+        src={src}
+        width={size}
+        height={size}
+        className={className}
+        alt={alt}
+    />
+)
 
 const Contact = () => {
     const [isVisible, setIsVisible] = useState(false)
@@ -8,32 +17,31 @@ const Contact = () => {
 
     const contactInfo = [
         {
-            icon: Mail,
+            iconSrc: "/mail.svg",
             title: "Email",
             value: "ethan.wade.baron@gmail.com",
             link: "mailto:ethan.wade.baron@gmail.com",
             description: "Send me a message"
         },
         {
-            icon: Linkedin,
+            iconSrc: "/linkedin.svg",
             title: "LinkedIn",
             value: "linkedin.com/in/ethan-w-baron",
             link: "https://www.linkedin.com/in/ethan-w-baron/",
             description: "Let's connect"
         },
         {
-            icon: Github,
+            iconSrc: "/github.svg",
             title: "Github",
             value: "github.com/EthanWBaron",
             link: "https://github.com/EthanWBaron",
             description: "See some projects on GitHub"
         },
         {
-            icon: ExternalLink,
+            iconSrc: "/external-link.svg",
             title: "Synaptinc",
             value: "Coming Soon",
             description: "Outsource Development to us"
-
         }
     ]
 
@@ -80,7 +88,6 @@ const Contact = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                     {contactInfo.map((contact, index) => {
-                        const IconComponent = contact.icon
                         return (
                             <Card
                                 key={index}
@@ -96,9 +103,11 @@ const Contact = () => {
                                 <CardHeader className="text-center">
                                     <div className="flex justify-center mb-4">
                                         <div className="p-4 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 rounded-full group-hover:from-yellow-400/30 group-hover:to-orange-500/30 transition-all duration-300">
-                                            <IconComponent
+                                            <SvgIcon
+                                                src={contact.iconSrc}
                                                 size={32}
-                                                className="text-yellow-300 group-hover:text-yellow-200 transition-colors"
+                                                className="text-yellow-300 group-hover:text-yellow-200 transition-colors filter brightness-0 saturate-100 invert sepia-1 saturate-7 hue-rotate-8"
+                                                alt={`${contact.title} icon`}
                                             />
                                         </div>
                                     </div>
@@ -118,7 +127,7 @@ const Contact = () => {
                                         className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-medium rounded-full hover:from-yellow-300 hover:to-orange-400 transition-all duration-300 transform hover:scale-105"
                                     >
                                         <span>{contact.value}</span>
-                                        <ExternalLink size={16} />
+                                        <SvgIcon src="/external-link.svg" size={16} alt="external link" />
                                     </a>
                                 </CardContent>
                             </Card>

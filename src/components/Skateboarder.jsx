@@ -1,39 +1,35 @@
 import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
+import { useGLTF } from '@react-three/drei'
 
 export function Skateboarder(props) {
-    const { nodes, materials } = useGLTF('/skateboarder.glb')
     const groupRef = useRef()
+    const { nodes, materials } = useGLTF('/skateboarder.glb')
 
-    useFrame(() => {
+    useFrame((state, delta) => {
         if (groupRef.current) {
-            groupRef.current.rotation.y += 0.004
+            groupRef.current.rotation.y += delta * 0.3
         }
     })
 
     return (
         <group ref={groupRef} {...props} dispose={null}>
-            <group rotation={[-Math.PI / 2, 0, 0]} scale={0.6}>
-                <group rotation={[Math.PI / 2, 0, 0]}>
-                    <group position={[0.002, 2.616, 0.003]}>
-                        <mesh
-                            castShadow={false}
-                            receiveShadow={false}
-                            geometry={nodes.Object_4.geometry}
-                            material={materials.Bunny}
-                        />
-                        <mesh
-                            castShadow={false}
-                            receiveShadow={false}
-                            geometry={nodes.Object_5.geometry}
-                            material={materials.Skateboard}
-                        />
-                    </group>
-                </group>
-            </group>
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Object_4.geometry}
+                material={materials.Bunny}
+                position={[0.014, 1.091, 0.11]}
+                scale={0.73}
+            />
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Object_5.geometry}
+                material={materials.Skateboard}
+                position={[-0.018, 0.352, 0.029]}
+                scale={0.381}
+            />
         </group>
     )
 }
-
-useGLTF.preload('/skateboarder.glb')

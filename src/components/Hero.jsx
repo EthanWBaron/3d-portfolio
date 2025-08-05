@@ -16,9 +16,9 @@ const Hero = () => {
 
             <div className="absolute inset-0 bg-slate-900/50"></div>
 
-            <div className="relative z-10 min-h-screen grid grid-cols-1 lg:grid-cols-7 items-center py-8 lg:py-0">
+            <div className="relative z-10 min-h-screen grid grid-cols-1 lg:grid-cols-5 items-center py-8 lg:py-0">
 
-                <div className="lg:col-span-2 flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-16 space-y-4 sm:space-y-6 text-center lg:text-left order-2 lg:order-1">
+                <div className="lg:col-start-2 lg:col-span-1 flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-12 space-y-4 sm:space-y-6 text-center lg:text-left order-2 lg:order-1 lg:-mt-16">
                     <div className="space-y-3 sm:space-y-4">
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white drop-shadow-lg font-bold leading-tight">
                             Ethan
@@ -36,7 +36,7 @@ const Hero = () => {
                     </div>
                 </div>
 
-                <div className="lg:col-span-5 flex items-center justify-center h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] px-2 sm:px-4 order-1 lg:order-2">
+                <div className="lg:col-span-3 flex items-center justify-center h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] px-2 sm:px-4 order-1 lg:order-2">
                     <div className="w-full max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-2xl h-full relative">
                         <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full blur-3xl"></div>
 
@@ -50,12 +50,12 @@ const Hero = () => {
                                 enableZoom={false}
                                 maxPolarAngle={Math.PI / 2}
                                 minPolarAngle={Math.PI / 4}
-                                target={[0, 1.1, 0]}
+                                target={[0, 0.9, 0]}
                             />
                             <ambientLight intensity={0.5} />
                             <directionalLight position={[10, 10, 5]} intensity={1} />
                             <group position={[0, -0.5, 0]}>
-                                <Skateboarder scale={1.2} />
+                                <Skateboarder scale={1.75} />
                             </group>
                         </Canvas>
                     </div>
