@@ -8,7 +8,7 @@ const Hero = () => {
         <div
             className="relative h-screen w-full overflow-hidden"
             style={{
-                backgroundImage: "url('/hero-bg.png')",
+                backgroundImage: "url('/hero-bg.webp')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundBlendMode: 'overlay'

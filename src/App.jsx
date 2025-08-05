@@ -3,6 +3,7 @@ import Hero from './components/Hero.jsx'
 import Projects from "./components/Projects.jsx"
 import Contact from "./components/Contact.jsx"
 import About from "./components/About.jsx"
+import { Analytics } from '@vercel/analytics/react';
 
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
             <Projects />
             <About/>
             <Contact />
+            <Analytics />
         </div>
     )
 }

@@ -25,7 +25,7 @@ const About = () => {
             ref={aboutRef}
             className="min-h-screen relative z-10 py-16 px-4 absolute inset-0 bg-slate-900/50"
             style={{
-                backgroundImage: "url('/about-bg.png')",
+                backgroundImage: "url('/about-bg.webp')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundBlendMode: 'overlay'
@@ -52,7 +52,7 @@ const About = () => {
                             <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full blur-3xl"></div>
                             <div>
                                 <img
-                                    src="/Icon.png"
+                                    src="/Icon.webp"
                                     alt="Ethan Baron"
                                     className="w-full max-w-sm mx-auto rounded-xl shadow-2xl object-cover"
                                 />

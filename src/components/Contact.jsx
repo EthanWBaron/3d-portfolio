@@ -57,7 +57,7 @@ const Contact = () => {
             ref={contactRef}
             className="min-h-screen relative z-10 py-16 px-4"
             style={{
-                backgroundImage: "url('/projects-bg.png')",
+                backgroundImage: "url('/projects-bg.webp')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundBlendMode: 'overlay'

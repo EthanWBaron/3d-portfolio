@@ -13,7 +13,7 @@ const Projects = () => {
             id: 1,
             title: "AniRec",
             description: " Built a lightweight animation discovery tool with React + Vite, integrating the TMDB API." ,
-            image: "/Ani-Rec.png",
+            image: "/Ani-Rec.webp",
             tech: ["React", "Node.js", "HTML/CSS", "Javascript"],
             github: "https://github.com/EthanWBaron/AniRec",
             live: "https://ani-rec-nine.vercel.app/",
@@ -23,7 +23,7 @@ const Projects = () => {
             id: 2,
             title: "MarketTrack Staff",
             description: "Scanner App for Stock Taking and Sales",
-            image: "/MarketTrack-Staff.jpeg",
+            image: "/MarketTrack-Staff.webp",
             tech: ["Kotlin", "Jetpack Compose", "Firebase", "Google MLKit"],
             tall: true
         },
@@ -32,7 +32,7 @@ const Projects = () => {
             title: "Father's Heart Android",
             description: "Collaborated in a team to build Android Application for event " +
                 "tracking, donations and volunteering.",
-            image: "/Fathers-Heart-Android.jpeg",
+            image: "/Fathers-Heart-Android.webp",
             tech: ["Kotlin", "Jetpack Compose", "Firebase"],
             tall: true
         },
@@ -40,7 +40,7 @@ const Projects = () => {
             id: 4,
             title: "Portfolio Website",
             description: "Responsive portfolio showcasing modern web development techniques.",
-            image: "/Portfolio.png",
+            image: "/Portfolio.webp",
             tech: ["React", "Tailwind", "ThreeJS"],
             github: "https://github.com/EthanWBaron/3d-portfolio",
             live: "https://ethanbaron.vercel.app"
@@ -49,7 +49,7 @@ const Projects = () => {
             id: 5,
             title: "MarketTrack Admin",
             description: "Responsive Admin Dashboard for the MarketTrack Stock App",
-            image: "/MarketTrack-Admin.png",
+            image: "/MarketTrack-Admin.webp",
             tech: ["Javascript", "ChartJS", "HTML/CSS", "Firebase"],
             wide: true
         },
@@ -58,7 +58,7 @@ const Projects = () => {
             title: "Father's Heart Desktop",
             description: "Developed a WPF desktop app (C#) admin application for event " +
                 "tracking, donations and volunteering.",
-            image: "/Fathers-Heart-Desktop.png",
+            image: "/Fathers-Heart-Desktop.webp",
             tech: ["C#", "WPF", "Firebase"]
         }
     ]
@@ -109,7 +109,7 @@ const Projects = () => {
             ref={sectionRef}
             className="min-h-screen py-16 px-4 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
             style={{
-                backgroundImage: "url('/projects-bg.png')",
+                backgroundImage: "url('/projects-bg.webp')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundBlendMode: 'overlay'
