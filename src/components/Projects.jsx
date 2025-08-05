@@ -1,8 +1,13 @@
-import React from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import { ExternalLink, Github } from 'lucide-react'
 import {Card, CardHeader,CardTitle,CardDescription, CardContent} from './Card'
 
 const Projects = () => {
+    const [isVisible, setIsVisible] = useState(false)
+    const [cardsVisible, setCardsVisible] = useState([])
+    const sectionRef = useRef(null)
+    const cardsRef = useRef([])
+
     const projects = [
         {
             id: 1,
@@ -58,34 +63,103 @@ const Projects = () => {
         }
     ]
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true)
+                }
+            },
+            { threshold: 0.1 }
+        )
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current)
+        }
+
+        return () => observer.disconnect()
+    }, [])
+
+    useEffect(() => {
+        const cardObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        const cardIndex = cardsRef.current.indexOf(entry.target)
+                        if (cardIndex !== -1) {
+                            setTimeout(() => {
+                                setCardsVisible(prev => [...prev, cardIndex])
+                            }, cardIndex * 100) // Stagger animation
+                        }
+                    }
+                })
+            },
+            { threshold: 0.2 }
+        )
+
+        cardsRef.current.forEach(card => {
+            if (card) cardObserver.observe(card)
+        })
+
+        return () => cardObserver.disconnect()
+    }, [])
+
     return (
-        <section>
-            <div className="relative z-10 max-w-7xl mx-auto pt-4">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <section
+            ref={sectionRef}
+            className="min-h-screen py-16 px-4 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+            style={{
+                backgroundImage: "url('/projects-bg.png')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundBlendMode: 'overlay'
+            }}
+        >
+            <div className="relative z-10 max-w-7xl mx-auto">
+                {/* Animated Header */}
+                <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ease-out ${
+                    isVisible
+                        ? 'opacity-100 translate-x-0'
+                        : 'opacity-0 -translate-x-full'
+                }`}>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
                         Featured <span className="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">Projects</span>
                     </h2>
-                    <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+                    <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto px-4">
                         A collection of projects that showcase my skills
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-fr">
-                    {projects.map((project) => (
+                {/* Mobile-friendly Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                    {projects.map((project, index) => (
                         <Card
                             key={project.id}
+                            ref={el => cardsRef.current[index] = el}
                             className={`
                                 group relative overflow-hidden border-gray-800 bg-slate-900/50 backdrop-blur-sm
-                                hover:border-yellow-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-400/10
-                                ${project.featured ? 'lg:col-span-2 lg:row-span-2' : ''}
-                                ${project.wide ? 'lg:col-span-2' : ''}
-                                ${project.tall ? 'lg:row-span-2' : ''}
+                                hover:border-yellow-400/50 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10
+                                ${project.featured ? 'sm:col-span-2 lg:col-span-2 lg:row-span-2' : ''}
+                                ${project.wide ? 'sm:col-span-2 lg:col-span-2' : ''}
+                                ${project.tall ? 'sm:row-span-1 lg:row-span-2' : ''}
+                                ${cardsVisible.includes(index)
+                                ? 'opacity-100 translate-y-0'
+                                : 'opacity-0 translate-y-8'
+                            }
                             `}
+                            style={{
+                                transitionDelay: `${index * 50}ms`
+                            }}
                         >
-                            {/* Project Image */}
+                            {/* Project Image - Mobile optimized */}
                             <div className={`
                                 relative overflow-hidden
-                                ${project.featured ? 'h-150' : project.tall ? 'h-150' : 'h-60'}
+                                ${project.featured
+                                ? 'h-48 sm:h-64 lg:h-80'
+                                : project.tall
+                                    ? 'h-48 sm:h-64 lg:h-80'
+                                    : 'h-40 sm:h-48 lg:h-60'
+                            }
                             `}>
                                 <img
                                     src={project.image}
@@ -99,41 +173,41 @@ const Projects = () => {
                                     {project.github && (
                                         <a
                                             href={project.github}
-                                            className="p-3 bg-yellow-400 text-black rounded-full hover:bg-yellow-300 transition-colors"
+                                            className="p-2 md:p-3 bg-yellow-400 text-black rounded-full hover:bg-yellow-300 transition-colors"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <Github size={20} />
+                                            <Github size={16} className="md:w-5 md:h-5" />
                                         </a>
                                     )}
                                     {project.live && (
                                         <a
                                             href={project.live}
-                                            className="p-3 bg-orange-500 text-white rounded-full hover:bg-orange-400 transition-colors"
+                                            className="p-2 md:p-3 bg-orange-500 text-white rounded-full hover:bg-orange-400 transition-colors"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <ExternalLink size={20} />
+                                            <ExternalLink size={16} className="md:w-5 md:h-5" />
                                         </a>
                                     )}
                                 </div>
                             </div>
 
-                            <CardHeader className="pb-3">
-                                <CardTitle className="text-white group-hover:text-yellow-300 transition-colors">
+                            <CardHeader className="pb-2 md:pb-3">
+                                <CardTitle className="text-white group-hover:text-yellow-300 transition-colors text-lg md:text-xl">
                                     {project.title}
                                 </CardTitle>
-                                <CardDescription className="text-gray-400 text-sm leading-relaxed">
+                                <CardDescription className="text-gray-400 text-sm leading-relaxed line-clamp-3">
                                     {project.description}
                                 </CardDescription>
                             </CardHeader>
 
                             <CardContent className="pt-0">
-                                {/* Tech Stack */}
-                                <div className="flex flex-wrap gap-2">
-                                    {project.tech.map((tech, index) => (
+                                {/* Tech Stack - Mobile optimized */}
+                                <div className="flex flex-wrap gap-1 md:gap-2">
+                                    {project.tech.map((tech, techIndex) => (
                                         <span
-                                            key={index}
+                                            key={techIndex}
                                             className="px-2 py-1 text-xs bg-yellow-400/10 text-yellow-300 rounded-full border border-yellow-400/20"
                                         >
                                             {tech}
@@ -145,6 +219,15 @@ const Projects = () => {
                     ))}
                 </div>
             </div>
+
+            <style jsx>{`
+                .line-clamp-3 {
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+            `}</style>
         </section>
     )
 }
