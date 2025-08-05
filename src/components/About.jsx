@@ -68,23 +68,23 @@ const About = () => {
                         <div className="space-y-6">
                             <div className="prose prose-lg">
                                 <p className="text-gray-300 text-lg leading-relaxed">
-                                    Hi there! I'm <span className="text-yellow-300 font-semibold">Ethan Baron</span>,
-                                    a passionate full-stack developer with a love for creating innovative digital solutions.
-                                    With expertise in modern web technologies like React, Node.js, and mobile development
-                                    with Kotlin and Jetpack Compose, I bring ideas to life through clean, efficient code.
+                                    Hey, I’m <span className="text-yellow-300 font-semibold">Ethan Baron</span>,
+                                    a full-stack developer who loves turning ideas into real, working products. I work with
+                                    modern tools like React, Node.js for web, Kotlin and Jetpack Compose for Android and C# WPF
+                                    for desktop applications.
                                 </p>
                                 <br/>
                                 <p className="text-gray-300 text-lg leading-relaxed">
-                                    I thrive on solving complex problems and building user-friendly applications that make
-                                    a real difference. Whether it's developing responsive web applications, mobile apps,
-                                    or working with databases and APIs, I'm always eager to take on new challenges and
-                                    learn cutting-edge technologies.
+                                    I enjoy tackling problems and creating apps to solve them.
+                                    From responsive web platforms to mobile apps to desktop and database/API work, I’m always looking
+                                    for a chance to learn something new.
                                 </p>
                                 <br/>
                                 <p className="text-gray-300 text-lg leading-relaxed">
-                                    When I'm not coding, you'll find me skateboarding, training my dog or sitting at my PS4
-                                    or laptop playing games.
+                                    When I’m not coding, you’ll probably find me skating, training my dog, or gaming on my
+                                    PS4 or my laptop.
                                 </p>
+
                             </div>
 
                             <div className="mt-8">
