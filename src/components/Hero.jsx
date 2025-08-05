@@ -6,7 +6,7 @@ import {Environment, OrbitControls} from "@react-three/drei";
 const Hero = () => {
     return (
         <div
-            className="relative h-screen w-full overflow-hidden"
+            className="relative min-h-screen w-full overflow-hidden"
             style={{
                 backgroundImage: "url('/hero-bg.webp')",
                 backgroundSize: 'cover',
@@ -16,28 +16,28 @@ const Hero = () => {
 
             <div className="absolute inset-0 bg-slate-900/50"></div>
 
-            <div className="relative z-10 h-full grid grid-cols-1 lg:grid-cols-7 items-center">
+            <div className="relative z-10 min-h-screen grid grid-cols-1 lg:grid-cols-7 items-center py-8 lg:py-0">
 
-                <div className="lg:col-span-2 flex flex-col justify-center px-8 lg:px-16 space-y-6 text-center lg:text-left order-2 lg:order-1">
-                    <div className="space-y-4">
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl text-white drop-shadow-lg font-bold leading-tight">
+                <div className="lg:col-span-2 flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-16 space-y-4 sm:space-y-6 text-center lg:text-left order-2 lg:order-1">
+                    <div className="space-y-3 sm:space-y-4">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white drop-shadow-lg font-bold leading-tight">
                             Ethan
                             <br/>
                             Baron
                         </h1>
-                        <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-yellow-200 drop-shadow-lg"
+                        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-yellow-200 drop-shadow-lg"
                             style={{textShadow: '1px 1px 3px rgba(0,0,0,0.8)'}}>
                             Software Developer
                         </h2>
-                        <p className="text-gray-100 text-lg max-w-md mx-auto lg:mx-0 drop-shadow-md"
+                        <p className="text-gray-100 text-sm sm:text-base md:text-lg max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:mx-0 drop-shadow-md leading-relaxed"
                            style={{textShadow: '1px 1px 2px rgba(0,0,0,0.7)'}}>
                             Creating C#, ReactJS and Kotlin Jetpack Compose Solutions
                         </p>
                     </div>
                 </div>
 
-                <div className="lg:col-span-5 flex items-center justify-center h-full px-4 order-1 lg:order-2">
-                    <div className="w-full max-w-2xl h-[500px] md:h-[600px] lg:h-[700px] relative">
+                <div className="lg:col-span-5 flex items-center justify-center h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] px-2 sm:px-4 order-1 lg:order-2">
+                    <div className="w-full max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-2xl h-full relative">
                         <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full blur-3xl"></div>
 
                         <Canvas
