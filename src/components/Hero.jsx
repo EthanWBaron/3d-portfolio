@@ -56,6 +56,7 @@ const Hero = () => {
                             <directionalLight position={[10, 10, 5]} intensity={1} />
                             <group position={[0, -0.5, 0]}>
                                 <Skateboarder scale={1.75} />
+                                {/* model from: https://www.artstation.com/artwork/Ga5KPN */}
                             </group>
                         </Canvas>
                     </div>
